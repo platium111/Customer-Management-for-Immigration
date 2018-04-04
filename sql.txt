@@ -1,0 +1,83 @@
+-- phpMyAdmin SQL Dump
+-- version 4.7.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Aug 30, 2017 at 04:18 AM
+-- Server version: 5.6.35
+-- PHP Version: 7.1.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+--
+-- Database: `iemc_database`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Document`
+--
+
+CREATE TABLE `Document` (
+  `documentId` int(11) NOT NULL,
+  `requirementId` int(11) NOT NULL,
+  `type` varchar(50) DEFAULT NULL,
+  `name` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `Document`
+--
+
+INSERT INTO `Document` (`documentId`, `requirementId`, `type`, `name`) VALUES
+(25, 31, 'original', 'doc1'),
+(26, 31, 'original', 'doc2'),
+(27, 31, 'scan', 'doc3'),
+(28, 33, 'scan', 'doc1'),
+(29, 34, 'scan', 'doc1'),
+(30, 34, 'scan', 'doc2'),
+(31, 34, 'original', 'doc3'),
+(32, 35, 'scan', 'doo'),
+(33, 35, 'original', 'd2'),
+(34, 35, 'scan', 'd3'),
+(35, 36, 'scan', 'doc1'),
+(36, 36, 'original', 'doc2'),
+(37, 37, 'scan', 'doc1'),
+(40, 38, 'scan', 'h1'),
+(41, 39, 'scan', 'g1'),
+(44, 40, 'scan', 'j1'),
+(45, 40, 'scan', 'j2'),
+(46, 41, 'scan', 'hi1'),
+(47, 41, 'scan', 'hi2');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `Document`
+--
+ALTER TABLE `Document`
+  ADD PRIMARY KEY (`documentId`),
+  ADD KEY `foreign_key` (`requirementId`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `Document`
+--
+ALTER TABLE `Document`
+  MODIFY `documentId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `Document`
+--
+ALTER TABLE `Document`
+  ADD CONSTRAINT `document_ibfk_1` FOREIGN KEY (`requirementId`) REFERENCES `Requirement` (`requirementId`);
